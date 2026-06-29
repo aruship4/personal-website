@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>arushi ✦ data scientist</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Petit+Formal+Script&display=swap');
+
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#faf7ff;--bg2:#f0eaff;--bg3:#f7f3ff;
@@ -14,11 +17,13 @@
   --rose:#f2c4d8;--rose2:#e896b8;
   --mint:#c8ede6;--peach:#fde8d8;
   --text:#2a1a4a;--text2:#5a4275;--text3:#9480b8;
-  --play:'Playfair Display',serif;
-  --nun:'Nunito',sans-serif;
+  --display:'Caveat',serif;
+  --body: 'Inter';
   --mono:'Space Mono',monospace;
 }
-body{background:var(--bg);color:var(--text);font-family:var(--nun);overflow-x:hidden}
+body{
+    font-family:var(--body);
+}
 
 nav{position:sticky;top:0;z-index:100;background:rgba(250,247,255,0.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--lilac2);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px}
 .nav-logo{font-family:var(--play);font-size:20px;color:var(--lav-d);font-style:italic;letter-spacing:-0.01em}
@@ -38,9 +43,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,247,255,0.92);backdrop
 #force-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0.5}
 .hero-content{position:relative;z-index:2;max-width:520px}
 .hero-tag{font-family:var(--mono);font-size:11px;color:var(--lav);letter-spacing:0.1em;margin-bottom:1.2rem;font-style:italic}
-.hero-name{font-family:var(--play);font-size:clamp(3rem,7vw,4.4rem);font-weight:400;line-height:1.05;color:var(--text);margin-bottom:0.7rem}
-.hero-name em{color:var(--lav);font-style:italic}
-.hero-name .wave{display:inline-block;animation:wave 2s ease-in-out infinite}
+.hero-name{
+    font-family:var(--display);
+    font-size:5.5rem;
+    font-weight:600;
+    letter-spacing:-0.03em;
+    line-height:0.9;
+}
 @keyframes wave{0%,100%{transform:rotate(0deg)}50%{transform:rotate(14deg)}}
 .hero-role{font-size:1.05rem;color:var(--text2);font-weight:400;margin-bottom:2.2rem;line-height:1.75}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
@@ -148,8 +157,8 @@ footer span{color:var(--lav)}
   <canvas id="force-canvas"></canvas>
   <div class="hero-content">
     <div class="hero-tag">// data scientist · researcher · builder</div>
-    <h1 class="hero-name">hi, i'm<br><em>Arushi</em> <span class="wave">👋</span></h1>
-    <p class="hero-role">second-year data science student at UC San Diego.<br>i build things at the crossroads of AI, economics, and data viz.</p>
+    <h1 class="hero-name">Hi, I'm<br><em>Arushi</em> <span class="wave">👋</span></h1>
+    <p class="hero-role">second-year data science student at UC San Diego.<br>I build things at the crossroads of AI, social impact, and data visualization.</p>
     <div class="hero-cta">
       <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">see my work</button>
       <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">about me →</button>
