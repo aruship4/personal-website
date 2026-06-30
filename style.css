@@ -282,7 +282,7 @@ footer {
   
   .signature-text {
     font-family: var(--signature);
-    font-size: clamp(5rem, 13vw, 10rem);
+    font-size: clamp(4rem, 9vw, 7rem);
     font-weight: 300;
     color: var(--accent);
   
@@ -292,10 +292,7 @@ footer {
     clip-path: inset(0 100% 0 0);
     animation: writeSignature 2.8s ease forwards;
     animation-delay: 0.4s;
-  
-    text-shadow:
-      0 0 12px rgba(142, 121, 198, 0.45),
-      0 0 32px rgba(142, 121, 198, 0.2);
+
   }
   
   .data-dot {
