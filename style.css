@@ -374,4 +374,15 @@ footer {
   }
 
   .profile-frame {
-   
+    width: 250px;
+    height: 250px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
