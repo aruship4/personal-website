@@ -1,492 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<title>arushi ✦ aspiring data scientist</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Petit+Formal+Script&display=swap');
-
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#faf7ff;--bg2:#f0eaff;--bg3:#f7f3ff;
-  --lav:#8b6fd4;--lav-l:#bea8f0;--lav-d:#5c3fa8;
-  --lilac:#ece4ff;--lilac2:#d8ccf5;
-  --rose:#f2c4d8;--rose2:#e896b8;
-  --mint:#c8ede6;--peach:#fde8d8;
-  --text:#2a1a4a;--text2:#5a4275;--text3:#9480b8;
-  --display:'Caveat',serif;
-  --body: 'Inter';
-  --mono:'Space Mono',monospace;
-}
-body{
-    font-family:var(--body);
-}
-
-
-nav{position:sticky;top:0;z-index:100;background:rgba(250,247,255,0.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--lilac2);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px}
-.nav-logo{font-family:var(--play);font-size:20px;color:var(--lav-d);font-style:italic;letter-spacing:-0.01em}
-.nav-links{display:flex;gap:2rem}
-.nav-links a{font-size:14px;color:var(--text3);font-weight:500;transition:color 0.2s;text-decoration:none}
-.nav-links a:hover{color:var(--lav)}
-.nav-gh{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:var(--lav-d);background:var(--lilac);border:1.5px solid var(--lilac2);border-radius:24px;padding:6px 16px;transition:all 0.2s;cursor:pointer;font-style:italic;text-decoration:none}
-.nav-gh:hover{background:var(--lav);color:#fff;border-color:var(--lav)}
-
-.hero{position:relative;min-height:560px;display:flex;flex-direction:column;justify-content:center;padding:5rem 3rem 4rem;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#faf7ff 0%,#f0eaff 45%,#fdf0f8 80%,#faf7ff 100%)}
-.blob{position:absolute;border-radius:60% 40% 55% 45% / 50% 60% 40% 50%;filter:blur(50px);pointer-events:none;animation:blobmove 10s ease-in-out infinite alternate}
-.blob1{width:380px;height:320px;background:rgba(139,111,212,0.1);top:-80px;right:-40px;animation-delay:0s}
-.blob2{width:260px;height:220px;background:rgba(242,196,216,0.18);bottom:-20px;right:200px;animation-delay:3s}
-.blob3{width:180px;height:160px;background:rgba(200,237,230,0.2);top:120px;right:80px;animation-delay:6s}
-@keyframes blobmove{0%{transform:scale(1) rotate(0deg)}100%{transform:scale(1.08) rotate(8deg)}}
-#force-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0.5}
-.hero-content{position:relative;z-index:2;max-width:520px}
-.hero-tag{font-family:var(--mono);font-size:11px;color:var(--lav);letter-spacing:0.1em;margin-bottom:1.2rem;font-style:italic}
-.hero-name{
-    font-family:var(--display);
-    font-size:5.5rem;
-    font-weight:600;
-    letter-spacing:-0.03em;
-    line-height:0.9;
-}
-@keyframes wave{0%,100%{transform:rotate(0deg)}50%{transform:rotate(14deg)}}
-.hero-role{font-size:1.05rem;color:var(--text2);font-weight:400;margin-bottom:2.2rem;line-height:1.75}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{background:var(--lav);color:#fff;font-family:var(--nun);font-size:14px;font-weight:600;padding:12px 26px;border-radius:32px;cursor:pointer;border:none;transition:all 0.25s;letter-spacing:0.01em}
-.btn-primary:hover{background:var(--lav-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(139,111,212,0.3)}
-.btn-ghost{background:transparent;color:var(--lav-d);font-family:var(--nun);font-size:14px;font-weight:600;padding:12px 26px;border-radius:32px;cursor:pointer;border:2px solid var(--lav-l);transition:all 0.25s}
-.btn-ghost:hover{background:var(--lilac)}
-
-.stats-bar{display:flex;background:white;border-top:1px solid var(--lilac2);border-bottom:1px solid var(--lilac2)}
-.stat{flex:1;padding:1.4rem 1rem;border-right:1px solid var(--lilac2);text-align:center}
-.stat:last-child{border-right:none}
-.stat-n{font-family:var(--play);font-size:2.2rem;color:var(--lav-d);font-style:italic;line-height:1}
-.stat-l{font-size:11.5px;color:var(--text3);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-top:5px}
-
-.section{padding:4rem 3rem;max-width:980px;margin:0 auto}
-.eyebrow{font-family:var(--mono);font-size:10.5px;color:var(--lav);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.5rem;font-style:italic}
-.sec-title{font-family:var(--play);font-size:2.4rem;color:var(--text);margin-bottom:2.2rem;font-weight:400;font-style:italic}
-
-.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.pc{background:white;border:1.5px solid var(--lilac2);border-radius:24px;padding:1.6rem;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden}
-.pc:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(139,111,212,0.14);border-color:var(--lav-l)}
-.pc-stripe{position:absolute;top:0;left:0;right:0;height:4px;border-radius:24px 24px 0 0}
-.pi{font-size:26px;margin-bottom:1rem;display:block}
-.ps{display:inline-block;font-family:var(--mono);font-size:9px;padding:3px 11px;border-radius:20px;margin-bottom:0.9rem;font-style:italic}
-.sa{background:rgba(139,111,212,0.1);color:var(--lav-d);border:1px solid rgba(139,111,212,0.22)}
-.sd{background:rgba(200,237,230,0.35);color:#2d8a78;border:1px solid rgba(200,237,230,0.7)}
-.pt{font-family:var(--play);font-size:1.1rem;font-weight:500;color:var(--text);margin-bottom:7px}
-.pd{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:1rem;font-weight:400}
-.tags{display:flex;gap:6px;flex-wrap:wrap}
-.tag{font-family:var(--mono);font-size:9px;padding:3px 10px;border-radius:14px;background:var(--lilac);color:var(--lav-d);font-style:italic}
-.pf{display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--lilac)}
-.pgh{font-family:var(--mono);font-size:10px;color:var(--text3);font-style:italic}
-
-.skills-band{background:var(--bg2);border-top:1px solid var(--lilac2);border-bottom:1px solid var(--lilac2);padding:4rem 3rem}
-.skills-inner{max-width:980px;margin:0 auto}
-#bubble-wrap{position:relative;width:100%;height:430px;background:white;border-radius:28px;border:1.5px solid var(--lilac2);overflow:hidden;margin-top:1.6rem}
-#bubble-svg{width:100%;height:100%}
-.legend-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:1.1rem}
-.legend-item{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--text3);font-family:var(--nun);font-weight:500}
-.legend-dot{width:10px;height:10px;border-radius:50%}
-.btt{position:absolute;background:white;border:1.5px solid var(--lilac2);border-radius:14px;padding:9px 15px;font-size:12px;color:var(--text2);pointer-events:none;opacity:0;transition:opacity 0.15s;box-shadow:0 4px 20px rgba(139,111,212,0.12);font-family:var(--nun);white-space:nowrap}
-
-.research-band{background:white;border-top:1px solid var(--lilac2);border-bottom:1px solid var(--lilac2);padding:4rem 3rem}
-.ri{max-width:980px;margin:0 auto}
-.rc{background:var(--bg3);border:1.5px solid var(--lilac2);border-radius:24px;padding:1.8rem;margin-bottom:16px;display:flex;gap:1.2rem;transition:all 0.25s}
-.rc:hover{border-color:var(--lav-l);box-shadow:0 8px 28px rgba(139,111,212,0.1)}
-.rdcol{display:flex;flex-direction:column;align-items:center;padding-top:5px}
-.rdot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
-.rline{width:1px;background:var(--lilac2);flex:1;margin-top:7px}
-.rtitle{font-family:var(--play);font-size:1.05rem;font-style:italic;color:var(--text);margin-bottom:5px}
-.rmeta{font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:9px;font-style:italic}
-.rdesc{font-size:13.5px;color:var(--text2);line-height:1.75;font-weight:400}
-
-.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:3rem;align-items:start}
-.about-text{font-size:14.5px;color:var(--text2);line-height:1.9;font-weight:400}
-.about-text p{margin-bottom:1.1rem}
-.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.4rem}
-.chip{font-size:13px;padding:6px 16px;border-radius:24px;background:var(--lilac);color:var(--lav-d);border:1.5px solid var(--lilac2);font-weight:500}
-.cur-card{background:white;border:1.5px solid var(--lilac2);border-radius:24px;padding:1.6rem}
-.cur-label{font-family:var(--mono);font-size:10px;color:var(--lav);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.1rem;font-style:italic}
-.role-item{display:flex;gap:11px;align-items:flex-start;margin-bottom:14px}
-.role-dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0}
-.role-name{font-size:14px;color:var(--text);font-weight:600;font-family:var(--nun)}
-.role-sub{font-size:12px;color:var(--text3);margin-top:2px;font-weight:400}
-
-.contact-band{background:var(--bg3);border-top:1px solid var(--lilac2);padding:4rem 3rem}
-.ci{max-width:980px;margin:0 auto}
-.contact-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:1.6rem}
-.cl{display:flex;align-items:center;gap:9px;background:white;border:1.5px solid var(--lilac2);border-radius:32px;padding:11px 22px;font-size:13.5px;color:var(--text2);transition:all 0.2s;cursor:pointer;font-weight:500;text-decoration:none}
-.cl:hover{border-color:var(--lav);color:var(--lav-d);background:var(--lilac);transform:translateY(-2px)}
-.cl svg{width:15px;height:15px;flex-shrink:0}
-
-footer{padding:2.2rem;text-align:center;border-top:1px solid var(--lilac2);font-family:var(--mono);font-size:11px;color:var(--text3);font-style:italic}
-footer span{color:var(--lav)}
-
-@media(max-width:680px){
-  .nav-links{display:none}
-  .hero{padding:3rem 1.5rem}
-  .section{padding:3rem 1.5rem}
-  .skills-band,.research-band,.contact-band{padding:3rem 1.5rem}
-  .about-grid{grid-template-columns:1fr}
-  .stats-bar{flex-wrap:wrap}
-  .stat{min-width:50%}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arushi Patra</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <nav>
+    <a class="logo" href="#">Arushi</a>
 
-<nav>
-  <div class="nav-logo">arushi ✦</div>
-  <div class="nav-links">
-    <a href="#projects">projects</a>
-    <a href="#skills">skills</a>
-    <a href="#research">research</a>
-    <a href="#about">about</a>
-  </div>
-  <a class="nav-gh" href="https://github.com/aruship4" target="_blank">aruship4</a>
-</nav>
-
-<div class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="blob blob1"></div>
-  <div class="blob blob2"></div>
-  <div class="blob blob3"></div>
-  <canvas id="force-canvas"></canvas>
-  <div class="hero-content">
-    <div class="hero-tag">// data scientist · researcher · builder</div>
-    <h1 class="hero-name">Hi, I'm<br><em>Arushi</em> <span class="wave">👋</span></h1>
-    <p class="hero-role">second-year data science student at UC San Diego.<br>I build things at the crossroads of AI, social impact, and data visualization.</p>
-    <div class="hero-cta">
-      <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">see my work</button>
-      <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">about me →</button>
+    <div class="nav-links">
+      <a href="#work">work</a>
+      <a href="#research">research</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
     </div>
-  </div>
-</div>
+  </nav>
 
-<div class="stats-bar">
-  <div class="stat"><div class="stat-n">6</div><div class="stat-l">projects</div></div>
-  <div class="stat"><div class="stat-n">2</div><div class="stat-l">research roles</div></div>
-  <div class="stat"><div class="stat-n">10+</div><div class="stat-l">technologies</div></div>
-  <div class="stat"><div class="stat-n">'27</div><div class="stat-l">graduating</div></div>
-</div>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">data science · research · visualization</p>
 
-<div class="section" id="projects">
-  <div class="eyebrow">// things i've built</div>
-  <div class="sec-title">projects</div>
-  <div class="project-grid">
+      <h1>
+        Hi, I’m <span>Arushi</span>.
+      </h1>
 
-    <div class="pc">
-      <div class="pc-stripe" style="background:linear-gradient(90deg,#bea8f0,#f2c4d8)"></div>
-      <span class="pi">📊</span>
-      <div><span class="ps sa">active</span></div>
-      <div class="pt">Intelligence Price Index</div>
-      <div class="pd">measuring how AI is shifting freelance knowledge-work prices on Fiverr and Upwork — modeled after the CPI.</div>
-      <div class="tags"><span class="tag">python</span><span class="tag">jetstream2</span><span class="tag">chart.js</span><span class="tag">NLP</span></div>
-      <div class="pf"><div class="pgh">AI-Smith Lab · Prof. Haojian Jin</div><span style="font-size:10px;color:var(--text3)">HDSI</span></div>
-    </div>
+      <p class="hero-text">
+        I’m a data science student at UC San Diego interested in AI, economics,
+        education equity, and building visual tools that make messy data easier
+        to understand.
+      </p>
 
-    <div class="pc">
-      <div class="pc-stripe" style="background:linear-gradient(90deg,#c8ede6,#bea8f0)"></div>
-      <span class="pi">🗺️</span>
-      <div><span class="ps sa">active</span></div>
-      <div class="pt">The Gap Map</div>
-      <div class="pd">visualizing educational outcome gaps using ASSISTments data — where do students actually need the most support?</div>
-      <div class="tags"><span class="tag">python</span><span class="tag">D3.js</span><span class="tag">pandas</span><span class="tag">sklearn</span></div>
-      <div class="pf"><div class="pgh">Hack Your Summer</div><span style="font-size:10px;color:var(--text3)">equity</span></div>
-    </div>
-
-    <div class="pc">
-      <div class="pc-stripe" style="background:linear-gradient(90deg,#f2c4d8,#bea8f0)"></div>
-      <span class="pi">🚗</span>
-      <div><span class="ps sd">complete</span></div>
-      <div class="pt">Road to Sustainability</div>
-      <div class="pd">scrollytelling D3.js app about fuel efficiency — quiz-driven so it's about your car, not just any car.</div>
-      <div class="tags"><span class="tag">D3.js</span><span class="tag">scrollama</span><span class="tag">javascript</span></div>
-      <div class="pf"><div class="pgh">DSC 106 · team project</div><span style="font-size:10px;color:var(--text3)">data viz</span></div>
-    </div>
-
-    <div class="pc">
-      <div class="pc-stripe" style="background:linear-gradient(90deg,#fde8d8,#f2c4d8)"></div>
-      <span class="pi">📺</span>
-      <div><span class="ps sd">complete</span></div>
-      <div class="pt">TubeScope</div>
-      <div class="pd">Random Forest pipeline predicting YouTube video virality, with an interactive Streamlit dashboard to explore it.</div>
-      <div class="tags"><span class="tag">sklearn</span><span class="tag">streamlit</span><span class="tag">pandas</span></div>
-      <div class="pf"><div class="pgh">github.com/aruship4</div><span style="font-size:10px;color:var(--text3)">ML</span></div>
-    </div>
-
-    <div class="pc">
-      <div class="pc-stripe" style="background:linear-gradient(90deg,#c8ede6,#c4d8ff)"></div>
-      <span class="pi">🌍</span>
-      <div><span class="ps sd">complete</span></div>
-      <div class="pt">Climate Change Viz</div>
-      <div class="pd">CMIP6 climate projections for San Diego across three SSP scenarios, animated in D3.js.</div>
-      <div class="tags"><span class="tag">D3.js</span><span class="tag">CMIP6</span><span class="tag">GeoJSON</span></div>
-      <div class="pf"><div class="pgh">DSC 106 · project 3</div><span style="font-size:10px;color:var(--text3)">climate</span></div>
-    </div>
-
-    <div class="pc">
-      <div class="pc-stripe" style="background:linear-gradient(90deg,#fde8d8,#bea8f0)"></div>
-      <span class="pi">🍽️</span>
-      <div><span class="ps sd">complete</span></div>
-      <div class="pt">Food.com Recipe Analysis</div>
-      <div class="pd">TF-IDF + regression on 80k+ recipes to figure out what actually makes people leave a good review.</div>
-      <div class="tags"><span class="tag">TF-IDF</span><span class="tag">regression</span><span class="tag">NLP</span></div>
-      <div class="pf"><div class="pgh">github.com/aruship4</div><span style="font-size:10px;color:var(--text3)">NLP</span></div>
-    </div>
-
-  </div>
-</div>
-
-<div class="skills-band" id="skills">
-  <div class="skills-inner">
-    <div class="eyebrow">// what i work with</div>
-    <div class="sec-title">skills</div>
-    <p style="font-size:14px;color:var(--text3);margin-top:-1.5rem;font-weight:500">bigger bubble = more comfortable. drag them around ✦</p>
-    <div id="bubble-wrap">
-      <svg id="bubble-svg"></svg>
-      <div class="btt" id="btt"></div>
-    </div>
-    <div class="legend-row">
-      <div class="legend-item"><div class="legend-dot" style="background:#8b6fd4"></div>languages</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#d4789a"></div>ML / data</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#5aaba0"></div>visualization</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#9478c8"></div>infrastructure</div>
-    </div>
-  </div>
-</div>
-
-<div class="research-band" id="research">
-  <div class="ri">
-    <div class="eyebrow">// what i'm thinking about</div>
-    <div class="sec-title">research</div>
-    <div class="rc">
-      <div class="rdcol"><div class="rdot" style="background:#8b6fd4"></div><div class="rline"></div></div>
-      <div><div class="rtitle">Intelligence Price Index (IPI)</div><div class="rmeta">AI-Smith Lab · HDSI · Prof. Haojian Jin · 2024–present</div><div class="rdesc">building a CPI-inspired index to measure how AI is reshaping what freelance knowledge work is worth — scraping Fiverr and Upwork, modeling across 7 categories, and visualizing it all in a live dashboard.</div></div>
-    </div>
-    <div class="rc">
-      <div class="rdcol"><div class="rdot" style="background:#e896b8"></div></div>
-      <div><div class="rtitle">AI, Face Filters & Teenage Body Image</div><div class="rmeta">independent research · 2022</div><div class="rdesc">looked at how AI face filters and TikTok's algorithm affect how teenagers see themselves. one of the things that first got me interested in how AI shapes real human behavior.</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="section" id="about">
-  <div class="eyebrow">// the person behind the code</div>
-  <div class="sec-title">about me</div>
-  <div class="about-grid">
-    <div>
-      <div class="about-text">
-        <p>i'm a second-year data science student at UC San Diego (class of 2027), doing research at the AI-Smith Lab with Prof. Haojian Jin at HDSI.</p>
-        <p>i'm really into questions that are hard to quantify — like how much human expertise is actually worth now that AI can do a lot of it. my work tends to live somewhere between economics, machine learning, and making the data actually look good.</p>
-        <p>outside of school i tutor math at Mathnasium, dance, play tennis, and am probably planning my next trip somewhere.</p>
+      <div class="hero-buttons">
+        <a href="#work" class="button primary">View my work</a>
+        <a href="#contact" class="button secondary">Contact me</a>
       </div>
-      <div class="chip-row">
-        <span class="chip">✦ AI economics</span>
-        <span class="chip">✦ data viz</span>
-        <span class="chip">✦ HCI</span>
-        <span class="chip">✦ education equity</span>
-        <span class="chip">✦ tennis</span>
-        <span class="chip">✦ traveling</span>
-        <span class="chip">✦ dancing</span>
+    </section>
+
+    <section id="work" class="section">
+      <div class="section-header">
+        <p class="eyebrow">selected projects</p>
+        <h2>Work I’m proud of</h2>
       </div>
-    </div>
-    <div class="cur-card">
-      <div class="cur-label">right now</div>
-      <div class="role-item"><div class="role-dot" style="background:#8b6fd4"></div><div><div class="role-name">AI-Smith Lab</div><div class="role-sub">research assistant · IPI project</div></div></div>
-      <div class="role-item"><div class="role-dot" style="background:#e896b8"></div><div><div class="role-name">Mathnasium</div><div class="role-sub">tutor · K–12 math</div></div></div>
-      <div class="role-item"><div class="role-dot" style="background:#5aaba0"></div><div><div class="role-name">UC San Diego</div><div class="role-sub">B.S. data science · class of 2027</div></div></div>
-      <div style="margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--lilac)">
-        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;font-style:italic">next up</div>
-        <div style="font-size:13.5px;color:var(--text2);line-height:1.65;font-weight:400">MS in data science / CS — applying fall 2026 🌸</div>
+
+      <div class="grid">
+        <article class="card">
+          <p class="tag">research</p>
+          <h3>Intelligence Price Index</h3>
+          <p>
+            A CPI-inspired research project measuring how AI is changing prices
+            in freelance knowledge work.
+          </p>
+          <div class="skills">
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>Data Viz</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="tag">education</p>
+          <h3>The Gap Map</h3>
+          <p>
+            A data visualization project exploring educational outcome gaps
+            using student learning data.
+          </p>
+          <div class="skills">
+            <span>D3.js</span>
+            <span>Python</span>
+            <span>ASSISTments</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="tag">machine learning</p>
+          <h3>TubeScope</h3>
+          <p>
+            A machine learning pipeline for predicting YouTube video virality
+            and exploring video trends.
+          </p>
+          <div class="skills">
+            <span>Scikit-learn</span>
+            <span>Streamlit</span>
+            <span>API</span>
+          </div>
+        </article>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<div class="contact-band">
-  <div class="ci">
-    <div class="eyebrow">// say hi</div>
-    <div class="sec-title">let's talk ✦</div>
-    <p style="font-size:14.5px;color:var(--text2);font-weight:400">open to research collabs, internships, and interesting problems.</p>
-    <div class="contact-row">
-      <a class="cl" href="https://github.com/aruship4" target="_blank">
-        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-        github
-      </a>
-      <a class="cl" href="https://aruship4.github.io" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        portfolio site
-      </a>
-      <a class="cl" href="https://linkedin.com/in/" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        linkedin
-      </a>
-    </div>
-  </div>
-</div>
+    <section id="research" class="section split">
+      <div>
+        <p class="eyebrow">research interests</p>
+        <h2>Questions I’m thinking about</h2>
+      </div>
 
-<footer>made with 💜 · d3.js · github pages · <span>aruship4</span> </footer>
+      <div class="text-block">
+        <p>
+          I’m interested in how AI changes the value of human expertise,
+          especially in labor markets, education, and creative work.
+        </p>
+        <p>
+          I like projects that combine statistics, machine learning, and
+          storytelling through interactive visualization.
+        </p>
+      </div>
+    </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-<script>
-(function(){
-  // hero force graph
-  const canvas=document.getElementById('force-canvas');
-  const hero=document.getElementById('hero');
-  const W=hero.offsetWidth||700,H=hero.offsetHeight||560;
-  canvas.width=W;canvas.height=H;
-  const ctx=canvas.getContext('2d');
-  const hn=[
-    {id:'IPI',r:22,c:'#8b6fd4'},{id:'D3.js',r:17,c:'#bea8f0'},
-    {id:'ML',r:18,c:'#9478c8'},{id:'Python',r:21,c:'#8b6fd4'},
-    {id:'NLP',r:13,c:'#d4789a'},{id:'Spark',r:12,c:'#bea8f0'},
-    {id:'Viz',r:15,c:'#8b6fd4'},{id:'TubeScope',r:14,c:'#d4789a'},
-    {id:'Climate',r:13,c:'#5aaba0'},{id:'GapMap',r:15,c:'#9478c8'},
-    {id:'Fiverr',r:11,c:'#bea8f0'},{id:'Upwork',r:11,c:'#bea8f0'},
-    {id:'Research',r:17,c:'#8b6fd4'},{id:'HDSI',r:12,c:'#9478c8'},
-    {id:'Chart.js',r:11,c:'#bea8f0'},{id:'sklearn',r:13,c:'#d4789a'},
-  ];
-  const hl=[
-    {s:'IPI',t:'Fiverr'},{s:'IPI',t:'Upwork'},{s:'IPI',t:'NLP'},{s:'IPI',t:'Research'},
-    {s:'ML',t:'TubeScope'},{s:'ML',t:'sklearn'},{s:'ML',t:'NLP'},
-    {s:'Python',t:'ML'},{s:'Python',t:'Spark'},{s:'Python',t:'NLP'},
-    {s:'D3.js',t:'Viz'},{s:'D3.js',t:'Climate'},{s:'Viz',t:'Chart.js'},
-    {s:'GapMap',t:'Python'},{s:'Research',t:'HDSI'},{s:'IPI',t:'Chart.js'},
-    {s:'TubeScope',t:'Python'}
-  ];
-  const hsim=d3.forceSimulation(hn)
-    .force('link',d3.forceLink(hl).id(d=>d.id).distance(78))
-    .force('charge',d3.forceManyBody().strength(-90))
-    .force('center',d3.forceCenter(W*0.73,H/2))
-    .force('collision',d3.forceCollide(d=>d.r+10));
-  function drawHero(){
-    ctx.clearRect(0,0,W,H);
-    hl.forEach(l=>{
-      ctx.beginPath();ctx.moveTo(l.source.x,l.source.y);ctx.lineTo(l.target.x,l.target.y);
-      ctx.strokeStyle='rgba(139,111,212,0.13)';ctx.lineWidth=1;ctx.stroke();
-    });
-    hn.forEach(n=>{
-      ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
-      ctx.fillStyle=n.c+'22';ctx.fill();
-      ctx.strokeStyle=n.c+'55';ctx.lineWidth=1.5;ctx.stroke();
-      ctx.fillStyle=n.c+'bb';
-      ctx.font=`italic ${Math.max(9,n.r*0.5)}px 'Space Mono',monospace`;
-      ctx.textAlign='center';ctx.textBaseline='middle';
-      ctx.fillText(n.id,n.x,n.y);
-    });
-  }
-  hsim.on('tick',drawHero);
+    <section id="about" class="section split">
+      <div>
+        <p class="eyebrow">about me</p>
+        <h2>Student, researcher, builder</h2>
+      </div>
 
-  // bubble chart
-  const skills=[
-    {name:'Python',cat:'Languages',prof:93},
-    {name:'JavaScript',cat:'Languages',prof:78},
-    {name:'SQL',cat:'Languages',prof:72},
-    {name:'LaTeX',cat:'Languages',prof:65},
-    {name:'R',cat:'Languages',prof:55},
-    {name:'pandas',cat:'ML / Data',prof:91},
-    {name:'scikit-learn',cat:'ML / Data',prof:86},
-    {name:'NumPy',cat:'ML / Data',prof:88},
-    {name:'Spark',cat:'ML / Data',prof:67},
-    {name:'Tableau',cat:'ML / Data',prof:70},
-    {name:'Streamlit',cat:'ML / Data',prof:83},
-    {name:'D3.js',cat:'Visualization',prof:81},
-    {name:'Chart.js',cat:'Visualization',prof:75},
-    {name:'Mapbox GL',cat:'Visualization',prof:62},
-    {name:'Scrollama',cat:'Visualization',prof:70},
-    {name:'Git',cat:'Infrastructure',prof:86},
-    {name:'Jetstream2',cat:'Infrastructure',prof:65},
-    {name:'AWS EC2',cat:'Infrastructure',prof:60},
-    {name:'Jupyter',cat:'Infrastructure',prof:88},
-  ];
-  const catC={'Languages':'#8b6fd4','ML / Data':'#d4789a','Visualization':'#5aaba0','Infrastructure':'#9478c8'};
-  const catBg={'Languages':'rgba(139,111,212,0.12)','ML / Data':'rgba(212,120,154,0.12)','Visualization':'rgba(90,171,160,0.13)','Infrastructure':'rgba(148,120,200,0.12)'};
+      <div class="text-block">
+        <p>
+          I’m currently studying Data Science at UC San Diego and doing research
+          with the AI-Smith Lab.
+        </p>
+        <p>
+          Outside of school, I tutor math, dance, play tennis, and usually have
+          too many tabs open.
+        </p>
+      </div>
+    </section>
 
-  const wrap=document.getElementById('bubble-wrap');
-  const svg=d3.select('#bubble-svg');
-  const bw=wrap.offsetWidth||700,bh=430;
-  svg.attr('viewBox',`0 0 ${bw} ${bh}`);
+    <section id="contact" class="section contact">
+      <p class="eyebrow">contact</p>
+      <h2>Let’s connect</h2>
 
-  const rScale=d3.scaleSqrt().domain([50,100]).range([26,60]);
-  const nodes=skills.map(s=>({...s,r:rScale(s.prof),x:bw/2+(Math.random()-.5)*220,y:bh/2+(Math.random()-.5)*160}));
+      <div class="contact-links">
+        <a href="mailto:apatra@ucsd.edu">Email</a>
+        <a href="https://github.com/aruship4" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/arushi-patra" target="_blank">LinkedIn</a>
+      </div>
+    </section>
+  </main>
 
-  const sim=d3.forceSimulation(nodes)
-    .force('charge',d3.forceManyBody().strength(4))
-    .force('center',d3.forceCenter(bw/2,bh/2))
-    .force('collision',d3.forceCollide(d=>d.r+5).strength(0.88))
-    .force('x',d3.forceX(bw/2).strength(0.035))
-    .force('y',d3.forceY(bh/2).strength(0.055))
-    .alphaDecay(0.014);
-
-  const g=svg.append('g');
-  const node=g.selectAll('g.b').data(nodes).enter().append('g').attr('class','b').style('cursor','grab');
-
-  node.append('circle')
-    .attr('r',d=>d.r)
-    .attr('fill',d=>catBg[d.cat])
-    .attr('stroke',d=>catC[d.cat])
-    .attr('stroke-width',1.5);
-
-  node.append('text')
-    .attr('text-anchor','middle').attr('dominant-baseline','middle')
-    .attr('fill',d=>catC[d.cat])
-    .attr('font-family',"'Nunito',sans-serif").attr('font-weight','600')
-    .attr('font-size',d=>Math.max(9,d.r*0.3))
-    .style('pointer-events','none')
-    .text(d=>d.name);
-
-  node.append('text')
-    .attr('text-anchor','middle').attr('dominant-baseline','middle')
-    .attr('y',d=>d.r*0.33)
-    .attr('fill',d=>catC[d.cat]+'99')
-    .attr('font-family',"'Space Mono',monospace").attr('font-style','italic')
-    .attr('font-size',d=>Math.max(7,d.r*0.2))
-    .style('pointer-events','none')
-    .text(d=>`${d.prof}%`);
-
-  const tooltip=document.getElementById('btt');
-
-  node.on('mouseover',(e,d)=>{
-    d3.select(e.currentTarget).select('circle')
-      .attr('fill',catC[d.cat]+'30').attr('stroke-width',2.5).attr('r',d.r*1.1);
-    tooltip.style.opacity='1';
-    tooltip.innerHTML=`<strong style="font-family:'Playfair Display',serif;font-style:italic">${d.name}</strong> &nbsp;·&nbsp; ${d.cat}<br><span style="color:#8b6fd4;font-family:'Space Mono',monospace;font-size:11px">${d.prof}% proficiency</span>`;
-  })
-  .on('mousemove',e=>{
-    const r=wrap.getBoundingClientRect();
-    let x=e.clientX-r.left+14,y=e.clientY-r.top-46;
-    if(x>bw-210)x-=195;
-    tooltip.style.left=x+'px';tooltip.style.top=y+'px';
-  })
-  .on('mouseout',(e,d)=>{
-    d3.select(e.currentTarget).select('circle')
-      .attr('fill',catBg[d.cat]).attr('stroke-width',1.5).attr('r',d.r);
-    tooltip.style.opacity='0';
-  });
-
-  node.call(d3.drag()
-    .on('start',(e,d)=>{if(!e.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;d3.select(e.sourceEvent.target.parentNode).style('cursor','grabbing')})
-    .on('drag',(e,d)=>{d.fx=e.x;d.fy=e.y})
-    .on('end',(e,d)=>{if(!e.active)sim.alphaTarget(0.01);d.fx=null;d.fy=null;d3.select(e.sourceEvent.target.parentNode).style('cursor','grab')})
-  );
-
-  function drift(){
-    nodes.forEach(n=>{n.vx=(n.vx||0)*0.98+(Math.random()-.5)*0.07;n.vy=(n.vy||0)*0.98+(Math.random()-.5)*0.07});
-    sim.alpha(Math.max(sim.alpha(),0.02)).restart();
-    setTimeout(drift,2200);
-  }
-  setTimeout(drift,3000);
-
-  sim.on('tick',()=>{
-    node.attr('transform',d=>`translate(${Math.max(d.r,Math.min(bw-d.r,d.x))},${Math.max(d.r,Math.min(bh-d.r,d.y))})`);
-  });
-})();
-</script>
+  <footer>
+    <p>built by Arushi · 2026</p>
+  </footer>
 </body>
 </html>
