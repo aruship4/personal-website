@@ -285,6 +285,7 @@ footer {
     font-size: clamp(3rem, 7vw, 6rem);
     font-weight: 300;
     color: var(--accent);
+    line-height: .9;
   
     display: inline-block;
   
