@@ -20,13 +20,11 @@
   </nav>
 
   <main>
-    <section class="hero">
+    <section class="hero reveal">
       <p class="eyebrow">data science · research · visualization</p>
 
-      
       <h1 class="hero-title">
         Hi, I’m
-      
         <span class="signature-wrap">
           <span class="signature-text">Arushi</span>
         </span>
@@ -34,8 +32,7 @@
 
       <p class="hero-text">
         I’m a data science student at UC San Diego interested in AI, social impact,
-        and building visual tools that make messy data easier
-        to understand.
+        and building visual tools that make messy data easier to understand.
       </p>
 
       <div class="hero-buttons">
@@ -44,94 +41,67 @@
       </div>
     </section>
 
-    <section id="work" class="section">
+    <section id="work" class="section reveal">
       <div class="section-header">
         <p class="eyebrow">selected projects</p>
         <h2>Work I’m proud of</h2>
       </div>
 
       <div class="grid">
-        <article class="card">
+        <article class="card reveal">
           <p class="tag">research</p>
           <h3>Intelligence Price Index</h3>
-          <p>
-            A CPI-inspired research project measuring how AI is changing prices
-            in freelance knowledge work.
-          </p>
+          <p>A CPI-inspired research project measuring how AI is changing prices in freelance knowledge work.</p>
           <div class="skills">
-            <span>Python</span>
-            <span>Pandas</span>
-            <span>Data Viz</span>
+            <span>Python</span><span>Pandas</span><span>Data Viz</span>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <p class="tag">education</p>
           <h3>The Gap Map</h3>
-          <p>
-            A data visualization project exploring educational outcome gaps
-            using student learning data.
-          </p>
+          <p>A data visualization project exploring educational outcome gaps using student learning data.</p>
           <div class="skills">
-            <span>D3.js</span>
-            <span>Python</span>
-            <span>ASSISTments</span>
+            <span>D3.js</span><span>Python</span><span>ASSISTments</span>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <p class="tag">machine learning</p>
           <h3>TubeScope</h3>
-          <p>
-            A machine learning pipeline for predicting YouTube video virality
-            and exploring video trends.
-          </p>
+          <p>A machine learning pipeline for predicting YouTube video virality and exploring video trends.</p>
           <div class="skills">
-            <span>Scikit-learn</span>
-            <span>Streamlit</span>
-            <span>API</span>
+            <span>Scikit-learn</span><span>Streamlit</span><span>API</span>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="research" class="section split">
+    <section id="research" class="section split reveal">
       <div>
         <p class="eyebrow">research interests</p>
         <h2>Questions I’m thinking about</h2>
       </div>
 
       <div class="text-block">
-        <p>
-          I’m interested in how AI changes the value of human expertise,
-          especially in labor markets, education, and creative work.
-        </p>
-        <p>
-          I like projects that combine statistics, machine learning, and
-          storytelling through interactive visualization.
-        </p>
+        <p>I’m interested in how AI changes the value of human expertise, especially in labor markets, education, and creative work.</p>
+        <p>I like projects that combine statistics, machine learning, and storytelling through interactive visualization.</p>
       </div>
     </section>
 
-    <section id="about" class="section split">
+    <section id="about" class="section split reveal">
       <div>
         <p class="eyebrow">about me</p>
         <h2>Student, researcher, builder</h2>
       </div>
 
       <div class="text-block">
-        <p>
-          I’m currently studying Data Science at UC San Diego and doing research
-          with the AI-Smith Lab.
-        </p>
-        <p>
-          Outside of school, I tutor math, dance, play tennis, and usually have
-          too many tabs open.
-        </p>
+        <p>I’m currently studying Data Science at UC San Diego and doing research with the AI-Smith Lab.</p>
+        <p>Outside of school, I tutor math, dance, play tennis, and usually have too many tabs open.</p>
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact reveal">
       <p class="eyebrow">contact</p>
       <h2>Let’s connect</h2>
 
@@ -146,5 +116,19 @@
   <footer>
     <p>built by Arushi · 2026</p>
   </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>

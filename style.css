@@ -9,7 +9,6 @@
   --accent-light: #eee8ff;
   --border: #e7e0ef;
   --shadow: 0 20px 50px rgba(60, 45, 90, 0.08);
-
   --body: "Inter", sans-serif;
   --signature: "Momo Signature", cursive;
 }
@@ -54,7 +53,6 @@ nav {
   font-family: var(--signature);
   font-size: 2.4rem;
   color: var(--accent);
-  font-weight: 400;
 }
 
 .nav-links {
@@ -98,11 +96,9 @@ main {
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 0.16em;
-
   font-size: clamp(3rem, 7vw, 5.8rem);
   line-height: 1;
   letter-spacing: -0.05em;
-
   margin-bottom: 1.5rem;
 }
 
@@ -120,7 +116,6 @@ main {
   color: var(--accent);
   line-height: 1.1;
   letter-spacing: 0;
-
   opacity: 0;
   animation: fadeSignature 0.9s ease forwards;
 }
@@ -169,7 +164,7 @@ main {
 }
 
 .button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: var(--shadow);
 }
 
@@ -200,11 +195,13 @@ h2 {
   border-radius: 24px;
   padding: 1.5rem;
   box-shadow: var(--shadow);
-  transition: 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 60px rgba(60, 45, 90, 0.12);
+  border-color: rgba(142, 121, 198, 0.35);
 }
 
 .tag {
@@ -279,7 +276,7 @@ h2 {
 
 .contact-links a:hover {
   color: var(--accent);
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: var(--shadow);
 }
 
@@ -288,6 +285,27 @@ footer {
   border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+/* transitions */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.grid .card:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.grid .card:nth-child(3) {
+  transition-delay: 0.24s;
 }
 
 @media (max-width: 800px) {
