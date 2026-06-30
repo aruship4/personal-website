@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@font-face {
+    font-family: "Momo Signature";
+    src: url("./fonts/MomoSignature.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --body: "Inter", sans-serif;
+    --signature: "Momo Signature", cursive;
+}
