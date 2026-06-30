@@ -77,11 +77,22 @@ main {
 .hero {
   min-height: calc(100vh - 70px);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 5rem;
-  max-width: 950px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 680px;
+}
+
+.hero-right {
+  flex: 0 0 340px;
+  display: flex;
+  justify-content: center;
 }
 
 .eyebrow {
@@ -145,28 +156,7 @@ main {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-
-  
 }
-
-.hero-left{
-
-    flex:1;
-    
-    max-width:700px;
-    
-    }
-    
-    .hero-right{
-    
-    flex:0 0 350px;
-    
-    display:flex;
-    
-    justify-content:center;
-    
-}
-
 
 .button {
   padding: 0.85rem 1.2rem;
@@ -189,6 +179,26 @@ main {
 .button:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: var(--shadow);
+}
+
+.profile-frame {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, #8e79c6, #b49ee9);
+  box-shadow: 0 15px 45px rgba(142, 121, 198, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid white;
 }
 
 .section {
@@ -310,8 +320,6 @@ footer {
   font-size: 0.85rem;
 }
 
-/* transitions */
-
 .reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -331,17 +339,43 @@ footer {
   transition-delay: 0.24s;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .nav-links {
     display: none;
   }
 
+  .hero {
+    min-height: 80vh;
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2.5rem;
+    padding: 4rem 0;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-right {
+    flex: initial;
+  }
+
   .hero h1 {
+    justify-content: center;
     font-size: clamp(3rem, 12vw, 4.5rem);
   }
 
   .hero-text {
     font-size: 1.05rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .profile-frame {
+    width: 250px;
+    height: 250px;
   }
 
   .grid {
@@ -351,47 +385,4 @@ footer {
   .split {
     grid-template-columns: 1fr;
   }
-
-  .hero {
-    min-height: 80vh;
-  }
-}
-
-
-/*profile image*/
-.profile-frame{
-
-    width:340px;
-    height:340px;
-    
-    border-radius:50%;
-    
-    padding:8px;
-    
-    background:linear-gradient(
-    135deg,
-    #8E79C6,
-    #B49EE9
-    );
-    
-    box-shadow:
-    0 15px 45px rgba(142,121,198,.22);
-    
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    
-    }
-
-.profile-img{
-
-    width:100%;
-    height:100%;
-    
-    object-fit:cover;
-    
-    border-radius:50%;
-    
-    border:6px solid white;
-        
 }
