@@ -282,7 +282,7 @@ footer {
   
   .signature-text {
     font-family: var(--signature);
-    font-size: clamp(4rem, 9vw, 7rem);
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 300;
     color: var(--accent);
   
