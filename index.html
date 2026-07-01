@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <nav>
+  <nav class="site-nav">
     <a class="logo" href="#">Arushi</a>
 
     <div class="nav-links">
@@ -20,9 +20,21 @@
   </nav>
 
   <main>
-    <section class="hero reveal">
+    <div class="background-decor">
+      <span class="star star-1">✦</span>
+      <span class="star star-2">✧</span>
+      <span class="star star-3">✦</span>
+      <span class="star star-4">✧</span>
+      <span class="star star-5">✦</span>
+
+      <div class="soft-blob blob-1"></div>
+      <div class="soft-blob blob-2"></div>
+      <div class="soft-blob blob-3"></div>
+    </div>
+
+    <section class="hero-section reveal">
       <div class="hero-left">
-        <p class="eyebrow">data science · research · visualization</p>
+        <p class="section-label">data science · research · visualization</p>
 
         <h1 class="hero-title">
           Hi, I’m
@@ -37,8 +49,8 @@
         </p>
 
         <div class="hero-buttons">
-          <a href="#work" class="button primary">View my work</a>
-          <a href="#contact" class="button secondary">Contact me</a>
+          <a href="#work" class="button primary-button">View my work</a>
+          <a href="#contact" class="button secondary-button">Contact me</a>
         </div>
       </div>
 
@@ -49,117 +61,180 @@
             alt="Arushi Patra"
             class="profile-img"
           />
+          <span class="profile-sparkle sparkle-one">✦</span>
+          <span class="profile-sparkle sparkle-two">✧</span>
         </div>
       </div>
     </section>
 
     <section id="work" class="section reveal">
       <div class="section-header">
-        <p class="eyebrow">selected projects</p>
+        <p class="section-label">selected projects</p>
         <h2>Recent Projects</h2>
       </div>
 
-      <div class="grid">
-        <article class="card reveal">
-          <p class="tag">research</p>
-          <h3>Intelligence Price Index</h3>
-          <p>A CPI-inspired research project measuring how AI is changing prices in freelance knowledge work.</p>
-
-          <div class="skills">
-            <span>Python</span>
-            <span>Pandas</span>
-            <span>Data Viz</span>
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <div class="project-image-wrap">
+            <img
+              src="images/ipi-cover.jpg"
+              alt="Intelligence Price Index project cover"
+              class="project-img"
+            />
           </div>
 
-          <div class="project-links">
-            <a
-              href="https://aismithlab.com/IntelligencePriceIndex/faq.html"
-              target="_blank"
-              class="project-btn primary"
-            >
-              View Project →
-            </a>
-          </div>
-        </article>
+          <div class="project-content">
+            <p class="project-type">research</p>
+            <h3>Intelligence Price Index</h3>
+            <p>
+              A CPI-inspired research project measuring how AI is changing prices in
+              freelance knowledge work.
+            </p>
 
-        <article class="card reveal">
-          <p class="tag">education</p>
-          <h3>The Gap Map</h3>
-          <p>A data visualization project exploring educational outcome gaps using student learning data.</p>
+            <div class="tech-stack">
+              <span>Python</span>
+              <span>Pandas</span>
+              <span>Data Viz</span>
+            </div>
 
-          <div class="skills">
-            <span>D3.js</span>
-            <span>Python</span>
-            <span>ASSISTments</span>
-          </div>
-
-          <div class="project-links">
-            <span class="project-btn disabled">In Progress</span>
+            <div class="project-links">
+              <a
+                href="https://aismithlab.com/IntelligencePriceIndex/faq.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-button"
+              >
+                View Project →
+              </a>
+            </div>
           </div>
         </article>
 
-        <article class="card reveal">
-          <p class="tag">machine learning</p>
-          <h3>TubeScope</h3>
-          <p>A machine learning pipeline for predicting YouTube video virality and exploring video trends.</p>
-
-          <div class="skills">
-            <span>Scikit-learn</span>
-            <span>Streamlit</span>
-            <span>API</span>
+        <article class="project-card reveal">
+          <div class="project-image-wrap">
+            <img
+              src="images/gap-map-cover.jpg"
+              alt="The Gap Map project cover"
+              class="project-img"
+            />
           </div>
 
-          <div class="project-links">
-            <a
-              href="https://tubescopeds3.streamlit.app/"
-              target="_blank"
-              class="project-btn primary"
-            >
-              View Project →
-            </a>
+          <div class="project-content">
+            <p class="project-type">education</p>
+            <h3>The Gap Map</h3>
+            <p>
+              A data visualization project exploring educational outcome gaps using
+              student learning data.
+            </p>
+
+            <div class="tech-stack">
+              <span>D3.js</span>
+              <span>Python</span>
+              <span>ASSISTments</span>
+            </div>
+
+            <div class="project-links">
+              <span class="project-button disabled-button">In Progress</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-image-wrap">
+            <img
+              src="images/tubescope-cover.jpg"
+              alt="TubeScope project cover"
+              class="project-img"
+            />
+          </div>
+
+          <div class="project-content">
+            <p class="project-type">machine learning</p>
+            <h3>TubeScope</h3>
+            <p>
+              A machine learning pipeline for predicting YouTube video virality and
+              exploring video trends.
+            </p>
+
+            <div class="tech-stack">
+              <span>Scikit-learn</span>
+              <span>Streamlit</span>
+              <span>API</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://tubescopeds3.streamlit.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-button"
+              >
+                View Project →
+              </a>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="about" class="section split reveal">
+    <section id="about" class="section two-column reveal">
       <div>
-        <p class="eyebrow">about me</p>
+        <p class="section-label">about me</p>
         <h2>Student, researcher, builder</h2>
       </div>
 
       <div class="text-block">
-        <p>I’m currently studying Data Science at UC San Diego and doing research with the AI-Smith Lab.</p>
-        <p>Outside of school, I tutor math, dance, play tennis, and usually have too many tabs open.</p>
+        <p>
+          I’m currently studying Data Science at UC San Diego and doing research
+          with the AI-Smith Lab.
+        </p>
+        <p>
+          Outside of school, I tutor math, dance, play tennis, and usually have
+          too many tabs open.
+        </p>
       </div>
     </section>
 
-    <section id="research" class="section split reveal">
+    <section id="research" class="section two-column reveal">
       <div>
-        <p class="eyebrow">research interests</p>
+        <p class="section-label">research interests</p>
         <h2>Questions I’m thinking about</h2>
       </div>
 
       <div class="text-block">
-        <p>I’m interested in how AI changes the value of human expertise, especially in labor markets, education, and creative work.</p>
-        <p>I like projects that combine statistics, machine learning, and storytelling through interactive visualization.</p>
+        <p>
+          I’m interested in how AI changes the value of human expertise,
+          especially in labor markets, education, and creative work.
+        </p>
+        <p>
+          I like projects that combine statistics, machine learning, and
+          storytelling through interactive visualization.
+        </p>
       </div>
     </section>
 
-    <section id="contact" class="section contact reveal">
-      <p class="eyebrow">contact</p>
+    <section id="contact" class="section contact-section reveal">
+      <p class="section-label">contact</p>
       <h2>Let’s connect!</h2>
 
       <div class="contact-links">
         <a href="mailto:apatra@ucsd.edu">Email</a>
-        <a href="https://github.com/aruship4" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/arushi-patra" target="_blank">LinkedIn</a>
+        <a href="https://github.com/aruship4" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/arushi-patra" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </section>
+
+    <div class="lavender-field" aria-hidden="true">
+      <span class="lavender-stem stem-1"></span>
+      <span class="lavender-stem stem-2"></span>
+      <span class="lavender-stem stem-3"></span>
+      <span class="lavender-stem stem-4"></span>
+      <span class="lavender-stem stem-5"></span>
+    </div>
   </main>
 
   <footer>
-    <p>2026</p>
+    <p>built with curiosity · 2026</p>
   </footer>
 
   <script>
