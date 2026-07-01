@@ -23,11 +23,25 @@ html {
   scroll-behavior: smooth;
 }
 
+main {
+    padding: 0 6vw;
+    background-image:
+      linear-gradient(rgba(142, 121, 198, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(142, 121, 198, 0.06) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
 body {
   font-family: var(--body);
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+
+  background:
+    radial-gradient(circle at 12% 18%, rgba(180, 158, 233, 0.28), transparent 26%),
+    radial-gradient(circle at 88% 12%, rgba(238, 232, 255, 0.9), transparent 22%),
+    radial-gradient(circle at 70% 80%, rgba(142, 121, 198, 0.16), transparent 28%),
+    linear-gradient(180deg, #fbfaf7 0%, #f7f2ff 45%, #fbfaf7 100%);
 }
 
 a {
@@ -68,10 +82,6 @@ nav {
 
 .nav-links a:hover {
   color: var(--accent);
-}
-
-main {
-  padding: 0 6vw;
 }
 
 .hero {
@@ -385,4 +395,36 @@ footer {
   .split {
     grid-template-columns: 1fr;
   }
+}
+
+
+.project-links {
+    display: flex;
+    margin-top: 1.5rem;
+  }
+  
+.project-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.project-btn.primary {
+    background: var(--accent);
+    color: white;
+}
+
+.project-btn.disabled {
+    background: var(--accent-light);
+    color: var(--accent);
+    cursor: default;
+}
+
+.project-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
