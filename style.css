@@ -384,3 +384,44 @@ footer { position: relative; z-index: 2; padding: 2rem 6vw; border-top: 1px soli
   .star { font-size: 1rem; }
   .timeline-item { padding: 1rem; }
 }
+
+.hero-title {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 0.16em;
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin-bottom: 1.5rem;
+}
+
+.signature-wrap {
+display: inline-block;
+overflow: visible;
+padding: 0.18em 0.12em 0.08em;
+}
+
+.signature-text {
+display: inline-block;
+font-family: var(--signature);
+font-size: 0.82em;
+font-weight: 400;
+color: var(--accent);
+line-height: 1.1;
+letter-spacing: 0;
+opacity: 0;
+animation: fadeSignature 0.9s ease forwards;
+}
+
+@keyframes fadeSignature {
+from {
+    opacity: 0;
+    transform: translateY(22px);
+}
+
+to {
+    opacity: 1;
+    transform: translateY(8px);
+}
+}
