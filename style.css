@@ -602,3 +602,65 @@ to {
     font-size: clamp(3rem, 13vw, 4.5rem);
   }
 }
+
+
+.d3-orbit-card {
+    position: absolute;
+    left: -45px;
+    bottom: 15px;
+    width: 330px;
+    height: 260px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+    padding: 1rem;
+    z-index: 3;
+  }
+  
+#skills-network {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.network-link {
+    stroke: rgba(142, 121, 198, 0.28);
+    stroke-width: 1.4;
+}
+
+.network-node circle {
+    fill: rgba(238, 232, 255, 0.95);
+    stroke: rgba(142, 121, 198, 0.55);
+    stroke-width: 1.5;
+}
+
+.network-node text {
+    font-size: 0.62rem;
+    font-weight: 700;
+    fill: var(--accent-dark);
+    pointer-events: none;
+}
+
+.network-node:hover circle {
+    fill: white;
+    stroke: var(--accent);
+    stroke-width: 2;
+}
+
+@media (max-width: 980px) {
+    .d3-orbit-card {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        margin: 0 auto 1.5rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .d3-orbit-card {
+        width: 100%;
+        height: 240px;
+    }
+}

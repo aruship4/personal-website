@@ -50,6 +50,9 @@
       </div>
 
       <div class="hero-visual">
+        <div class="d3-orbit-card">
+          <svg id="skills-network"></svg>
+        </div>
         <div class="profile-card">
           <div class="profile-frame">
             <img src="images/main_profile.jpg" alt="Arushi Patra" class="profile-img" />
@@ -192,8 +195,9 @@
     </div>
   </main>
 
-  <footer><p>built by Arushi · 2026</p></footer>
+  <footer><p>built with html, css, and d3 · 2026</p></footer>
 
+  <script src="https://d3js.org/d3.v7.min.js"></script>
   <script>
     const revealElements = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver((entries) => {
@@ -202,6 +206,96 @@
       });
     }, { threshold: 0.15 });
     revealElements.forEach((el) => observer.observe(el));
+  
+    const skills = [
+    { id: "Data Science", group: "center" },
+    { id: "Python", group: "code" },
+    { id: "ML", group: "code" },
+    { id: "D3.js", group: "viz" },
+    { id: "Research", group: "research" },
+    { id: "Tableau", group: "viz" },
+    { id: "Ethical AI", group: "research" },
+    { id: "Education", group: "impact" }
+  ];
+
+  const links = [
+    { source: "Data Science", target: "Python" },
+    { source: "Data Science", target: "ML" },
+    { source: "Data Science", target: "D3.js" },
+    { source: "Data Science", target: "Research" },
+    { source: "Research", target: "Ethical AI" },
+    { source: "D3.js", target: "Tableau" },
+    { source: "Research", target: "Education" }
+  ];
+
+  const svg = d3.select("#skills-network");
+  const width = 330;
+  const height = 260;
+
+  svg
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr("role", "img");
+
+  const simulation = d3.forceSimulation(skills)
+    .force("link", d3.forceLink(links).id(d => d.id).distance(78))
+    .force("charge", d3.forceManyBody().strength(-180))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    .force("collision", d3.forceCollide().radius(34));
+
+  const link = svg.append("g")
+    .selectAll("line")
+    .data(links)
+    .join("line")
+    .attr("class", "network-link");
+
+  const node = svg.append("g")
+    .selectAll("g")
+    .data(skills)
+    .join("g")
+    .attr("class", "network-node")
+    .call(drag(simulation));
+
+  node.append("circle")
+    .attr("r", d => d.id === "Data Science" ? 28 : 22);
+
+  node.append("text")
+    .text(d => d.id)
+    .attr("text-anchor", "middle")
+    .attr("dy", "0.35em");
+
+  simulation.on("tick", () => {
+    link
+      .attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
+
+    node.attr("transform", d => `translate(${d.x}, ${d.y})`);
+  });
+
+  function drag(simulation) {
+    function dragstarted(event) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      event.subject.fx = event.subject.x;
+      event.subject.fy = event.subject.y;
+    }
+
+    function dragged(event) {
+      event.subject.fx = event.x;
+      event.subject.fy = event.y;
+    }
+
+    function dragended(event) {
+      if (!event.active) simulation.alphaTarget(0);
+      event.subject.fx = null;
+      event.subject.fy = null;
+    }
+
+    return d3.drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended);
+  }
   </script>
 </body>
 </html>
