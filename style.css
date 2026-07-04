@@ -184,7 +184,7 @@ main {
 .hero-stats strong { display: block; font-size: 1.25rem; color: var(--accent-dark); line-height: 1.1; }
 .hero-stats span { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 0.2rem; }
 
-.hero-visual { display: flex; justify-content: center; }
+.hero-visual { display: flex; justify-content: center; position: relative;}
 .profile-card { position: relative; width: 350px; min-height: 430px; }
 
 .profile-frame {
