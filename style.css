@@ -184,7 +184,13 @@ main {
 .hero-stats strong { display: block; font-size: 1.25rem; color: var(--accent-dark); line-height: 1.1; }
 .hero-stats span { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 0.2rem; }
 
-.hero-visual { display: flex; justify-content: center; position: relative;}
+.hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .profile-card { position: relative; width: 350px; min-height: 430px; }
 
 .profile-frame {
@@ -605,9 +611,9 @@ to {
 
 
 .d3-orbit-card {
-    position: absolute;
-    left: 100px;
-    bottom: 15px;
+    position: relative;
+    left: auto;
+    bottom: auto;
     width: 330px;
     height: 260px;
     background: rgba(255, 255, 255, 0.72);
@@ -617,8 +623,8 @@ to {
     backdrop-filter: blur(14px);
     padding: 1rem;
     z-index: 3;
-  }
-  
+}
+
 #skills-network {
     width: 100%;
     height: 100%;
