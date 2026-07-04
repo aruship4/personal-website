@@ -606,7 +606,7 @@ to {
 
 .d3-orbit-card {
     position: absolute;
-    left: -45px;
+    left: 100px;
     bottom: 15px;
     width: 330px;
     height: 260px;
