@@ -52,20 +52,27 @@
         <div class="d3-orbit-card">
           <svg id="skills-network"></svg>
         </div>
-        <div class="profile-card">
-          <div class="profile-frame">
-            <img src="images/main_profile.jpg" alt="Arushi Patra" class="profile-img" />
-          </div>
-          <div class="mini-card mini-card-top">
-            <span>Currently researching</span>
-            <strong>AI’s effect on freelance pricing</strong>
-          </div>
-          <div class="mini-card mini-card-bottom">
-            <span>Focus areas</span>
-            <strong>ML · dashboards · ethical AI</strong>
+
+      </div>
+
+      <div class="hero-visual">
+          <div class="profile-card">
+            <div class="profile-frame">
+              <img src="images/main_profile.jpg" alt="Arushi Patra" class="profile-img" />
+            </div>
+            <div class="mini-card mini-card-top">
+              <span>Currently researching</span>
+              <strong>AI’s effect on freelance pricing</strong>
+            </div>
+            <div class="mini-card mini-card-bottom">
+              <span>Focus areas</span>
+              <strong>ML · dashboards · ethical AI</strong>
+            </div>
           </div>
         </div>
+
       </div>
+
     </section>
 
     <section id="work" class="section reveal">
@@ -228,18 +235,18 @@
   ];
 
   const svg = d3.select("#skills-network");
-  const width = 330;
-  const height = 260;
+  const width = 500;
+  const height = 420;
 
   svg
     .attr("viewBox", `0 0 ${width} ${height}`)
     .attr("role", "img");
 
   const simulation = d3.forceSimulation(skills)
-    .force("link", d3.forceLink(links).id(d => d.id).distance(78))
-    .force("charge", d3.forceManyBody().strength(-180))
+    .force("link", d3.forceLink(links).id(d => d.id).distance(120))
+    .force("charge", d3.forceManyBody().strength(-420))
     .force("center", d3.forceCenter(width / 2, height / 2))
-    .force("collision", d3.forceCollide().radius(34));
+    .force("collision", d3.forceCollide().radius(48));
 
   const link = svg.append("g")
     .selectAll("line")
@@ -255,8 +262,15 @@
     .call(drag(simulation));
 
   node.append("circle")
-    .attr("r", d => d.id === "Data Science" ? 28 : 22);
+    .attr("r", d => {
 
+      if(d.id==="Data Science")
+          return 42;
+
+      return 30;
+
+      });
+      
   node.append("text")
     .text(d => d.id)
     .attr("text-anchor", "middle")

@@ -125,9 +125,18 @@ main {
   max-width: 1220px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.28fr 0.72fr;
+  grid-template-columns:
+    1.3fr
+    0.9fr
+    0.8fr;
+  gap:3rem;
   align-items: center;
-  gap: 5rem;
+}
+
+.hero-graph{
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .section-label {
@@ -604,8 +613,8 @@ to {
     position: relative;
     left: auto;
     bottom: auto;
-    width: 330px;
-    height: 260px;
+    width: 500px;
+    height: 420px;
     background: rgba(255, 255, 255, 0.72);
     border: 1px solid var(--border);
     border-radius: 28px;
