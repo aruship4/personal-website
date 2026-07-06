@@ -122,14 +122,14 @@ main {
   position: relative;
   z-index: 1;
   min-height: calc(100vh - 72px);
-  max-width: 1220px;
+  max-width: 1450px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns:
-    1.3fr
-    0.9fr
-    0.8fr;
-  gap:3rem;
+  grid-template-columns: 
+    minmax(520px, 1.45fr) 
+    minmax(360px, 0.8fr) 
+    minmax(280px, 0.65fr);
+  gap:2rem;
   align-items: center;
 }
 
