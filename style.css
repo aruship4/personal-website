@@ -188,14 +188,14 @@ main {
 /* hero */
 .hero-section {
   min-height: calc(100vh - 72px);
-  max-width: 1450px;
+  max-width: 1350px;
   margin: 0 auto;
   display: grid;
   grid-template-columns:
-    minmax(520px, 1.45fr)
-    minmax(360px, 0.8fr)
-    minmax(280px, 0.65fr);
-  gap: 2rem;
+    minmax(480px, 1.25fr)
+    minmax(320px, 0.75fr)
+    minmax(300px, 0.7fr);
+  gap: 2.5rem;
   align-items: center;
 }
 
@@ -216,7 +216,7 @@ main {
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 0.16em;
-  max-width: 780px;
+  max-width: 700px;
   margin-bottom: 1.5rem;
   font-size: clamp(3rem, 7vw, 5.8rem);
   line-height: 1;
@@ -242,7 +242,7 @@ main {
 }
 
 .hero-text {
-  max-width: 900px;
+  max-width: 680px;
   margin-bottom: 2rem;
   color: var(--muted);
   font-size: 1.28rem;
@@ -331,7 +331,7 @@ main {
 
 /* sections */
 .section {
-  max-width: 1220px;
+  max-width: 1350px;
   margin: 0 auto;
   padding: 6rem 0;
   border-top: 1px solid var(--border);
@@ -529,6 +529,7 @@ h2 {
   bottom: 8px;
   width: 1px;
   background: var(--border);
+  display: none;
 }
 
 .timeline-item {
@@ -551,7 +552,7 @@ h2 {
   margin-top: 0.45rem;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 6px var(--accent-light);
+  box-shadow: none;
 }
 
 .timeline-date {
@@ -617,8 +618,8 @@ footer {
 /* D3 research map */
 .d3-orbit-card {
   position: relative;
-  width: 500px;
-  height: 420px;
+  width: 370px;
+  height: 330px;
   padding: 1rem;
   z-index: 3;
   border-radius: var(--radius-lg);
