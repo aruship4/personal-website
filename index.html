@@ -39,6 +39,19 @@
               role="img"
               aria-hidden="true"
             >
+              <defs>
+                <clipPath id="signature-reveal">
+                  <rect
+                    class="signature-reveal-rect"
+                    x="0"
+                    y="0"
+                    width="0"
+                    height="110"
+                  />
+                </clipPath>
+              </defs>
+
+              <!-- Moving handwritten outline -->
               <text
                 class="signature-stroke"
                 x="5"
@@ -47,16 +60,17 @@
                 Arushi!
               </text>
 
+              <!-- Filled text revealed at the same time -->
               <text
                 class="signature-fill"
                 x="5"
                 y="82"
+                clip-path="url(#signature-reveal)"
               >
                 Arushi!
               </text>
             </svg>
-
-            <span class="signature-cursor" aria-hidden="true"></span>
+          </span>
           </span>
         </h1>
 

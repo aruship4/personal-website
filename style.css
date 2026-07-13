@@ -103,9 +103,13 @@ main {
   line-height: 1;
   letter-spacing: -0.05em;
 }
+
+
+/* name outline */
+
 .signature-wrap {
   display: inline-block;
-  width: 310px;
+  width: clamp(220px, 30vw, 340px);
   height: 1.15em;
   overflow: visible;
   transform: translateY(0.12em);
@@ -124,7 +128,7 @@ main {
   font-weight: 400;
 }
 
-/* Animated outline */
+/* Outline that moves like handwriting */
 
 .signature-stroke {
   fill: transparent;
@@ -139,14 +143,17 @@ main {
   animation: writeSignature 2.4s ease forwards;
 }
 
-/* Solid color appears after the writing finishes */
+/* Solid version underneath */
 
 .signature-fill {
   fill: var(--accent);
-  opacity: 0;
+  stroke: none;
+}
 
-  animation: fillSignature 0.5s ease forwards;
-  animation-delay: 2.05s;
+/* Reveals the filled version while the outline moves */
+
+.signature-reveal-rect {
+  animation: revealSignatureFill 2.4s ease forwards;
 }
 
 @keyframes writeSignature {
@@ -159,50 +166,13 @@ main {
   }
 }
 
-@keyframes fillSignature {
+@keyframes revealSignatureFill {
   from {
-    opacity: 0;
+    width: 0;
   }
 
   to {
-    opacity: 1;
-  }
-}
-
-.signature-cursor {
-  position: absolute;
-  right: -4px;
-  bottom: 14px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  opacity: 0;
-
-  animation:
-    movePen 2.4s ease forwards,
-    hidePen 0.25s ease forwards 2.45s;
-}
-
-.signature-wrap {
-  position: relative;
-}
-
-@keyframes movePen {
-  0% {
-    left: 0;
-    opacity: 1;
-  }
-
-  100% {
-    left: 98%;
-    opacity: 1;
-  }
-}
-
-@keyframes hidePen {
-  to {
-    opacity: 0;
+    width: 330px;
   }
 }
 
