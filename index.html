@@ -32,48 +32,56 @@
       <div class="hero-copy">
         <h1 class="hero-title">
           Hi, I’m
-          <span class="signature-wrap">
-            <span class="signature-text">Arushi!</span>
-          </span>
-        </h1>        
+          <span class="signature-wrap"><span class="signature-text">Arushi!</span></span>
+        </h1>
+
         <p class="hero-text">
-          I’m a Data Science student at UC San Diego interested in machine learning, 
-          data visualization, and AI research. I build interactive tools and conduct 
-          data-driven research to better understand how technology shapes education, 
+          I’m a Data Science student at UC San Diego interested in machine learning,
+          data visualization, and AI research. I build interactive tools and conduct
+          data-driven research to better understand how technology shapes education,
           digital labor markets, and human behavior.
         </p>
+
         <div class="hero-buttons">
           <a href="#work" class="button primary-button">View Projects</a>
           <a href="#contact" class="button secondary-button">Get in Touch</a>
         </div>
-
       </div>
 
-      <div class="hero-visual">
-        <div class="d3-orbit-card">
-          <svg id="skills-network"></svg>
+      <aside class="research-preview reveal">
+        <p class="preview-label">Current focus</p>
+        <h3>AI, labor markets, and education data</h3>
+        <p>
+          I study how technology shapes work and learning through machine learning,
+          visualization, and statistical analysis.
+        </p>
+
+        <div class="preview-project">
+          <span>Currently researching</span>
+          <strong>Intelligence Price Index</strong>
+          <small>Faculty-advised research with AI-Smith Lab</small>
         </div>
 
-      </div>
+        <div class="skills-chart-wrap">
+          <svg id="skills-chart"></svg>
+        </div>
+      </aside>
 
-      <div class="hero-visual">
-          <div class="profile-card">
-            <div class="profile-frame">
-              <img src="images/main_profile.jpg" alt="Arushi Patra" class="profile-img" />
-            </div>
-            <div class="mini-card mini-card-top">
-              <span>Currently researching</span>
-              <strong>AI’s effect on freelance pricing</strong>
-            </div>
-            <div class="mini-card mini-card-bottom">
-              <span>Focus areas</span>
-              <strong>ML · dashboards · ethical AI</strong>
-            </div>
+      <div class="hero-visual reveal">
+        <div class="profile-card">
+          <div class="profile-frame">
+            <img src="images/main_profile.jpg" alt="Arushi Patra" class="profile-img" />
+          </div>
+          <div class="mini-card mini-card-top">
+            <span>Currently researching</span>
+            <strong>AI’s effect on freelance pricing</strong>
+          </div>
+          <div class="mini-card mini-card-bottom">
+            <span>Focus areas</span>
+            <strong>ML · dashboards · ethical AI</strong>
           </div>
         </div>
-
       </div>
-
     </section>
 
     <section id="work" class="section reveal">
@@ -83,8 +91,7 @@
       </div>
 
       <div class="project-grid">
-        <article class="project-card featured-card reveal">
-
+        <article class="project-card reveal">
           <div class="project-content">
             <p class="project-type">Faculty-advised research</p>
             <h3>Intelligence Price Index</h3>
@@ -100,7 +107,6 @@
         </article>
 
         <article class="project-card reveal">
-
           <div class="project-content">
             <p class="project-type">Machine learning</p>
             <h3>TubeScope</h3>
@@ -116,7 +122,6 @@
         </article>
 
         <article class="project-card reveal">
-
           <div class="project-content">
             <p class="project-type">Education data visualization</p>
             <h3>The Gap Map</h3>
@@ -132,7 +137,6 @@
         </article>
 
         <article class="project-card reveal">
-
           <div class="project-content">
             <p class="project-type">Statistical analysis</p>
             <h3>Protein Content & Recipe Ratings</h3>
@@ -202,114 +206,9 @@
     </div>
   </main>
 
-  <footer><p>built with html, css, and d3 · 2026</p></footer>
+  <footer><p>Designed and developed by Arushi · 2026</p></footer>
 
   <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script>
-    const revealElements = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("show");
-      });
-    }, { threshold: 0.15 });
-    revealElements.forEach((el) => observer.observe(el));
-  
-    const skills = [
-    { id: "Data Science", group: "center" },
-    { id: "Python", group: "code" },
-    { id: "ML", group: "code" },
-    { id: "D3.js", group: "viz" },
-    { id: "Research", group: "research" },
-    { id: "Tableau", group: "viz" },
-    { id: "Ethical AI", group: "research" },
-    { id: "Education", group: "impact" }
-  ];
-
-  const links = [
-    { source: "Data Science", target: "Python" },
-    { source: "Data Science", target: "ML" },
-    { source: "Data Science", target: "D3.js" },
-    { source: "Data Science", target: "Research" },
-    { source: "Research", target: "Ethical AI" },
-    { source: "D3.js", target: "Tableau" },
-    { source: "Research", target: "Education" }
-  ];
-
-  const svg = d3.select("#skills-network");
-  const width = 370;
-  const height = 330;
-
-  svg
-    .attr("viewBox", `0 0 ${width} ${height}`)
-    .attr("role", "img");
-
-  const simulation = d3.forceSimulation(skills)
-    .force("link", d3.forceLink(links).id(d => d.id).distance(120))
-    .force("charge", d3.forceManyBody().strength(-420))
-    .force("center", d3.forceCenter(width / 2, height / 2))
-    .force("collision", d3.forceCollide().radius(48));
-
-  const link = svg.append("g")
-    .selectAll("line")
-    .data(links)
-    .join("line")
-    .attr("class", "network-link");
-
-  const node = svg.append("g")
-    .selectAll("g")
-    .data(skills)
-    .join("g")
-    .attr("class", "network-node")
-    .call(drag(simulation));
-
-  node.append("circle")
-    .attr("r", d => {
-
-      if(d.id==="Data Science")
-          return 42;
-
-      return 30;
-
-      });
-
-  node.append("text")
-    .text(d => d.id)
-    .attr("text-anchor", "middle")
-    .attr("dy", "0.35em");
-
-  simulation.on("tick", () => {
-    link
-      .attr("x1", d => d.source.x)
-      .attr("y1", d => d.source.y)
-      .attr("x2", d => d.target.x)
-      .attr("y2", d => d.target.y);
-
-    node.attr("transform", d => `translate(${d.x}, ${d.y})`);
-  });
-
-  function drag(simulation) {
-    function dragstarted(event) {
-      if (!event.active) simulation.alphaTarget(0.3).restart();
-      event.subject.fx = event.subject.x;
-      event.subject.fy = event.subject.y;
-    }
-
-    function dragged(event) {
-      event.subject.fx = event.x;
-      event.subject.fy = event.y;
-    }
-
-    function dragended(event) {
-      if (!event.active) simulation.alphaTarget(0);
-      event.subject.fx = null;
-      event.subject.fy = null;
-    }
-
-    return d3.drag()
-      .on("start", dragstarted)
-      .on("drag", dragged)
-      .on("end", dragended);
-  }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
