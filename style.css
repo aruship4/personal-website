@@ -103,16 +103,110 @@ main {
   line-height: 1;
   letter-spacing: -0.05em;
 }
-.signature-wrap { display: inline-block; overflow: visible; padding: 0.18em 0.12em 0.08em; }
-.signature-text {
+.signature-wrap {
   display: inline-block;
-  font-family: var(--signature);
-  font-size: 0.82em;
-  color: var(--accent);
-  line-height: 1.1;
-  opacity: 0;
-  animation: fadeSignature 0.9s ease forwards;
+  width: 310px;
+  height: 1.15em;
+  overflow: visible;
+  transform: translateY(0.12em);
 }
+
+.signature-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.signature-stroke,
+.signature-fill {
+  font-family: var(--signature);
+  font-size: 92px;
+  font-weight: 400;
+}
+
+/* Animated outline */
+
+.signature-stroke {
+  fill: transparent;
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+
+  animation: writeSignature 2.4s ease forwards;
+}
+
+/* Solid color appears after the writing finishes */
+
+.signature-fill {
+  fill: var(--accent);
+  opacity: 0;
+
+  animation: fillSignature 0.5s ease forwards;
+  animation-delay: 2.05s;
+}
+
+@keyframes writeSignature {
+  from {
+    stroke-dashoffset: 900;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillSignature {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.signature-cursor {
+  position: absolute;
+  right: -4px;
+  bottom: 14px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+
+  animation:
+    movePen 2.4s ease forwards,
+    hidePen 0.25s ease forwards 2.45s;
+}
+
+.signature-wrap {
+  position: relative;
+}
+
+@keyframes movePen {
+  0% {
+    left: 0;
+    opacity: 1;
+  }
+
+  100% {
+    left: 98%;
+    opacity: 1;
+  }
+}
+
+@keyframes hidePen {
+  to {
+    opacity: 0;
+  }
+}
+
+
 .hero-text { max-width: 680px; margin-bottom: 2rem; color: var(--muted); font-size: 1.18rem; }
 .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
 .button { padding: 0.85rem 1.25rem; border-radius: 999px; font-weight: 800; transition: transform 0.25s ease, box-shadow 0.25s ease; }
@@ -229,7 +323,6 @@ footer { padding: 2rem var(--page-pad); background: rgba(251,250,247,0.92); bord
 @keyframes starTwinkle { 0%, 100% { opacity: 0.2; transform: scale(0.82) rotate(0deg); } 50% { opacity: 0.85; transform: scale(1.12) rotate(12deg); } }
 @keyframes orbFloat { 0%, 100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-18px) translateX(12px); } }
 @keyframes softFloat { 0%, 100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
-@keyframes fadeSignature { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(8px); } }
 @keyframes lavenderSway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
 
 @media (max-width: 1100px) {
