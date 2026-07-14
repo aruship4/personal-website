@@ -110,7 +110,7 @@ main {
 .signature-wrap {
   display: inline-block;
   width: clamp(220px, 30vw, 340px);
-  height: 1.15em;
+  height: 1.5em;
   overflow: visible;
   transform: translateY(0.12em);
 }
